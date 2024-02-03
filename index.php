@@ -25,7 +25,7 @@ $products = fetch_products();
             <img src="<?= $product['image'] ?>" alt="<?= $product['name'] ?>">
             <p><?= $product['name'] ?></p>
             <p>$<?= $product['price'] ?></p>
-            <a href="cart.php?action=add&id=<?= $product['id'] ?>" class="add-to-cart">Add to Cart</a>
+            <a href="cart.php?cart_action=add&product_id=<?= $product['id'] ?>" class="add-to-cart">Add to Cart</a>
         </div>
     <?php endforeach; ?>
 </body>
