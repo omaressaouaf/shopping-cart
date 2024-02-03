@@ -1,4 +1,5 @@
 <?php
+
 require_once "./shared/functions.php";
 
 session_start();
