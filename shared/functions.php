@@ -41,7 +41,9 @@ function fetch_cart_items(): array
             return [];
         }
 
-        $product_ids = array_keys($_SESSION['cart']);
+        $cart = $_SESSION['cart'];
+
+        $product_ids = array_keys($cart);
 
         $placeholders = rtrim(str_repeat('?,', count($product_ids)), ',');
 
@@ -49,7 +51,18 @@ function fetch_cart_items(): array
 
         $query->execute($product_ids);
 
-        return $query->fetchAll(PDO::FETCH_ASSOC);
+        $products = $query->fetchAll(PDO::FETCH_ASSOC);
+
+        $cart_items = [];
+
+        foreach ($products as $product) {
+            $cart_items[] = [
+                ...$product,
+                'quantity' => $cart[$product['id']]
+            ];
+        }
+
+        return $cart_items;
     } catch (PDOException $e) {
         die('Fetching cart items failed: ' . $e->getMessage());
     }
@@ -57,7 +70,7 @@ function fetch_cart_items(): array
 
 function add_to_cart(int $product_id): void
 {
-    $_SESSION['cart'][$product_id] = true;
+    $_SESSION['cart'][$product_id] = isset($_SESSION['cart'][$product_id]) ? $_SESSION['cart'][$product_id] + 1 : 1;
 }
 
 function remove_from_cart(int $product_id): void

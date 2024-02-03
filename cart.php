@@ -15,6 +15,7 @@ if (isset($_GET['cart_action']) && $_GET['cart_action'] == 'remove' && isset($_G
 }
 
 $cart_items = fetch_cart_items();
+print_r($_SESSION["cart"]);
 ?>
 
 <!DOCTYPE html>
@@ -36,7 +37,7 @@ $cart_items = fetch_cart_items();
     <?php foreach ($cart_items as $cart_item) : ?>
         <div class="cart-item">
             <img src="<?= $cart_item['image'] ?>" alt="<?= $cart_item['name'] ?>">
-            <p><?= $cart_item['name'] ?></p>
+            <p><?= $cart_item['name'] ?> (<?= $cart_item['quantity'] ?>)</p>
             <p>$<?= $cart_item['price'] ?></p>
             <a href="cart.php?cart_action=remove&product_id=<?= $cart_item['id'] ?>" class="remove-from-cart">Remove from Cart</a>
         </div>
