@@ -1,3 +1,9 @@
+<?php
+require "./functions.php";
+
+$pdo = connect_to_database();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
