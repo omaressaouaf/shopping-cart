@@ -1,6 +1,6 @@
 <?php
 
-require "./functions.php";
+require_once "./shared/functions.php";
 
 $pdo = connect_to_database();
 
@@ -14,10 +14,12 @@ $products = fetch_products();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Store</title>
-    <link rel="stylesheet" href="./styles/index.css">
+    <link rel="stylesheet" href="./styles.css">
 </head>
 
 <body>
+    <?php require_once "./shared/nav.php" ?>
+
     <h2>Product List</h2>
 
     <?php foreach ($products as $product) : ?>

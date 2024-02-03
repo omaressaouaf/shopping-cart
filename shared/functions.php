@@ -32,7 +32,6 @@ function fetch_products(): array
     }
 }
 
-
 function fetch_cart_items(): array
 {
     try {
