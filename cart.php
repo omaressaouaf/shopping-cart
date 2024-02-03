@@ -36,7 +36,7 @@ $cart_items = fetch_cart_items();
         <div class="cart-item">
             <img src="<?= $cart_item['image'] ?>" alt="<?= $cart_item['name'] ?>">
             <p><?= $cart_item['name'] ?></p>
-            <p><?= $cart_item['price'] ?></p>
+            <p>$<?= $cart_item['price'] ?></p>
             <a href="cart.php?cart_action=remove&product_id=<?= $cart_item['id'] ?>" class="remove-from-cart">Remove from Cart</a>
         </div>
     <?php endforeach; ?>
