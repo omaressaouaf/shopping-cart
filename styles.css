@@ -16,6 +16,11 @@ nav a {
   margin: 0 10px;
 }
 
+nav a.active {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
 .product {
   border: 1px solid #ccc;
   padding: 10px;
