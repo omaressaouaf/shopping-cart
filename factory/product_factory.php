@@ -4,7 +4,7 @@ require_once "../shared/functions.php";
 
 $pdo = connect_to_database();
 
-function product_factory($name, $price, $image)
+function product_factory(string $name, float $price, string $image): void
 {
     global $pdo;
 
