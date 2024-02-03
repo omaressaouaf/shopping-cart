@@ -1,7 +1,5 @@
 # ENSA Shopping Cart
-
 ***
-
 #### Features implemented are
 - Ability to list products
 - Ability to add products to cart
@@ -11,7 +9,7 @@
 
 You can access the products page by accessing `index.php` and the cart page by `cart.php`
 
-You can seed sample products by running the following command
+You can seed sample products by running the following commands
 
 ```bash
 # Add execution permissions to the factory script
