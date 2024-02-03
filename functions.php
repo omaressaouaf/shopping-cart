@@ -7,8 +7,27 @@ function connect_to_database(): PDO
         $username = 'root';
         $password = '';
 
-        return new PDO($dsn, $username, $password);
+        $pdo = new PDO($dsn, $username, $password);
+
+        $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+
+        return $pdo;
     } catch (PDOException $e) {
         die('Connection failed: ' . $e->getMessage());
+    }
+}
+
+function fetch_products(): array
+{
+    try {
+        global $pdo;
+
+        $query = $pdo->prepare("SELECT * FROM products");
+
+        $query->execute();
+
+        return $query->fetchAll(PDO::FETCH_ASSOC);
+    } catch (PDOException $e) {
+        die('Fetching products failed: ' . $e->getMessage());
     }
 }
