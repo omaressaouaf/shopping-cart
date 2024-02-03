@@ -1,6 +1,6 @@
 <?php
 
-require_once "../shared/functions.php";
+require_once "./shared/functions.php";
 
 $pdo = connect_to_database();
 
